@@ -56,7 +56,9 @@ texto_markdown = f"""
 <span style="color: green; font-weight: bold;">**Tasa mínima:** {tasa_minima}</span>
 """
 
-# Mostrar el texto con formato en la aplicación
+st.write(f"""
+<span style="color: green; font-weight: bold;">**Tasa mínima:** {tasa_minima}</span>
+""", unsafe_allow_html=True)
 st.markdown(texto_markdown)
 
 # st.markdown(f"**Tasa mínima:** {tasa_minima}")
