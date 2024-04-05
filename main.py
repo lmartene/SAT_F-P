@@ -112,3 +112,18 @@ st.write("""
     <p>Contacto: <a href="mailto:tucorreo@email.com">tucorreo@email.com</a></p>
 </footer>
 """)
+
+st.experimental_set_page_config(
+    page_title="Mi aplicación",
+    layout="wide",
+    menu_items={
+        "About": "https://www.tuweb.com/about",
+        "Help": "https://www.tuweb.com/help",
+    },
+    footer="""
+        <footer>
+            <p>Copyright &copy; 2023 - Tu nombre</p>
+            <p>Contacto: <a href="mailto:tucorreo@email.com">tucorreo@email.com</a></p>
+        </footer>
+    """,
+)
