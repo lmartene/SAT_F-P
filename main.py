@@ -47,6 +47,9 @@ df_prestamos = df_prestamos.style.apply(lambda x: 'color:green' if x['TEA'] == t
 st.table(df_prestamos)
 
 
+st.markdown("""
+**Información obtenida en:** https://www.argentina.gob.ar/tema/vivienda/creditos#1
+""")
 
 st.markdown("""## Simular:
 """)

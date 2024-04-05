@@ -2,10 +2,9 @@
 
 # matplotlib
 # numpy
-# beautifulsoup4
-# requests
+beautifulsoup4
+requests
 # pdfquery
-# requests
 # json
 
 
