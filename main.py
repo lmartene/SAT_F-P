@@ -15,6 +15,36 @@ st.markdown("""
 
 
 
+# Información de los bancos
+bancos = {
+    "BBVA": {
+        "Plazo": "Hasta 30 años",
+        "Monto máximo": "$10.000.000",
+        "TEA": "7,5%",
+        "Link": "https://www.bbva.com.ar/personas/productos/creditos-hipotecarios/comprar/permanente-pesos.html",
+    },
+    "Hipotecario": {
+        "Plazo": "Hasta 35 años",
+        "Monto máximo": "$15.000.000",
+        "TEA": "6,9%",
+        "Link": "https://www.hipotecario.com.ar/personas/creditos-hipotecarios/adquisicion/",
+    },
+    "Provincia": {
+        "Plazo": "Hasta 30 años",
+        "Monto máximo": "$8.000.000",
+        "TEA": "8,5%",
+        "Link": "https://www.bancoprovincia.com.ar/CDN/Get/A5388_Banca_Personal_tasas_costos_condiciones_vigentes",
+    },
+}
+
+
+df_prestamos = pd.DataFrame(bancos).T
+
+# mejor tasa
+tasa_minima = df_prestamos["TEA"].min()
+df_prestamos = df_prestamos.style.apply(lambda x: 'color:green' if x['TEA'] == tasa_minima else '', axis=1)
+
+st.table(df_prestamos)
 
 
 
