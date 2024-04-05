@@ -5,6 +5,11 @@ import pandas as pd
 
 st.title("Simulador de Crédito Hipotecario")
 
+st.markdown("""
+> "Crédito... es el único testimonio perdurable a la confianza del hombre en el hombre."
+""")
+
+
 monto_prestamo = st.number_input("Monto del préstamo", min_value=100000, max_value=5000000)
 tasa_interes = st.number_input("Tasa de interés anual", min_value=0.01, max_value=0.20)
 plazo_anios = st.number_input("Plazo del préstamo (años)", min_value=1, max_value=30)
