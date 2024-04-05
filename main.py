@@ -52,16 +52,13 @@ df_prestamos.loc["BBVA", "TEA"] = tasa_bbva
 
 # mejor tasa
 tasa_minima = df_prestamos["TEA"].min()
-texto_markdown = f"""
-<span style="color: green; font-weight: bold;">**Tasa mínima:** {tasa_minima}</span>
-"""
+
 
 st.write(f"""
 <span style="color: green; font-weight: bold;">**Tasa mínima:** {tasa_minima}</span>
 """, unsafe_allow_html=True)
-st.markdown(texto_markdown)
 
-# st.markdown(f"**Tasa mínima:** {tasa_minima}")
+
 
 st.table(df_prestamos)
 
@@ -72,7 +69,7 @@ st.markdown("""
 
 st.markdown("""## Simular:
 """)
-monto_prestamo = st.number_input("Monto del préstamo", min_value=100000, max_value=5000000)
+monto_prestamo = st.number_input("Monto ", min_value=100000, max_value=5000000)
 tasa_interes = st.number_input("Tasa de interés anual", min_value=0.01, max_value=0.20)
 plazo_anios = st.number_input("Plazo del préstamo (años)", min_value=1, max_value=30)
 
@@ -89,9 +86,9 @@ st.write("Cuota mensual estimada: $", cuota_mensual)
 st.write("Amortización total: $", amortizacion_total)
 st.write("Interés total: $", interes_total)
 
-# Gráfico amortización (opcional)
+# Gráfico amortización
 
-if st.checkbox("Mostrar gráfico de amortización"):
+if st.checkbox("Mostrar gráfico "):
     meses = np.arange(1, plazo_anios * 12 + 1)
     amortizacion_acumulada = np.cumsum(cuota_mensual)
 
