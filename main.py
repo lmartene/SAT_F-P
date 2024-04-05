@@ -4,6 +4,8 @@ import pandas as pd
 import numpy as np
 import requests
 import json
+import re
+
 
 
 st.title("Termómetro de Crédito Hipotecario")
@@ -18,21 +20,21 @@ st.markdown("""
 # Información de los bancos
 bancos = {
     "BBVA": {
-        "Plazo": "Hasta 30 años",
-        "Monto máximo": "$10.000.000",
+        "Plazo": "240 meses",
+        "Monto máximo": "$15.000.000",
         "TEA": "7,5%",
         "Link": "https://www.bbva.com.ar/personas/productos/creditos-hipotecarios/comprar/permanente-pesos.html",
     },
-    "Hipotecario": {
-        "Plazo": "Hasta 35 años",
-        "Monto máximo": "$15.000.000",
-        "TEA": "6,9%",
+    "Hipotecario UVA": {
+        "Plazo": "360 meses",
+        "Monto máximo": "$20.000.000",
+        "TEA": "13,5%",
         "Link": "https://www.hipotecario.com.ar/personas/creditos-hipotecarios/adquisicion/",
     },
     "Provincia": {
         "Plazo": "Hasta 30 años",
         "Monto máximo": "$8.000.000",
-        "TEA": "8,5%",
+        "TEA": "140,5%",
         "Link": "https://www.bancoprovincia.com.ar/CDN/Get/A5388_Banca_Personal_tasas_costos_condiciones_vigentes",
     },
 }
@@ -40,10 +42,17 @@ bancos = {
 
 df_prestamos = pd.DataFrame(bancos).T
 
+url = "https://www.bbva.com.ar/personas/productos/creditos-hipotecarios/comprar/permanente-pesos.html"
+response = requests.get(url)
+html_content = response.text
+tasa_bbva = re.findall(r"(\d+,\d+)", html_content)[0]
+
+df_prestamos.loc["BBVA", "TEA"] = tasa_bbva
+
 # mejor tasa
 tasa_minima = df_prestamos["TEA"].min()
 
-st.markdown(f"**Tasa mínima:** {tasa_minima}%")
+st.markdown(f"**Tasa mínima:** {tasa_minima}")
 
 st.table(df_prestamos)
 
