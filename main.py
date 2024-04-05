@@ -45,7 +45,8 @@ df_prestamos = pd.DataFrame(bancos).T
 url = "https://www.bbva.com.ar/personas/productos/creditos-hipotecarios/comprar/permanente-pesos.html"
 response = requests.get(url)
 html_content = response.text
-tasa_bbva = re.findall(r"(\d+,\d+)", html_content)[0]
+# tasa_bbva = re.findall(r"(\d+,\d+)", html_content)[0]
+tasa_bbva='117,13%'
 
 df_prestamos.loc["BBVA", "TEA"] = tasa_bbva
 
