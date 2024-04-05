@@ -42,7 +42,8 @@ df_prestamos = pd.DataFrame(bancos).T
 
 # mejor tasa
 tasa_minima = df_prestamos["TEA"].min()
-df_prestamos = df_prestamos.style.apply(lambda x: 'color:green' if x['TEA'] == tasa_minima else '', axis=1)
+
+st.markdown(f"**Tasa mínima:** {tasa_minima}%")
 
 st.table(df_prestamos)
 
