@@ -52,8 +52,14 @@ df_prestamos.loc["BBVA", "TEA"] = tasa_bbva
 
 # mejor tasa
 tasa_minima = df_prestamos["TEA"].min()
+texto_markdown = f"""
+<span style="color: green; font-weight: bold;">**Tasa mínima:** {tasa_minima}</span>
+"""
 
-st.markdown(f"**Tasa mínima:** {tasa_minima}")
+# Mostrar el texto con formato en la aplicación
+st.markdown(texto_markdown)
+
+# st.markdown(f"**Tasa mínima:** {tasa_minima}")
 
 st.table(df_prestamos)
 
