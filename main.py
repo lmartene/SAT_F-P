@@ -105,25 +105,3 @@ if st.checkbox("Mostrar gráfico "):
 url_formulario = f"https://docs.google.com/forms/d/1rLmnb_uj0rvr1LL8FoRLe8WZP8lgDB-5ieEy3eFM5lQ/viewform?edit_requested=true"
 st.write(f"""Que podemos sumar? Valoramos tu [opinión]({url_formulario})""")
 
-
-st.write("""
-<footer>
-    <p>Copyright &copy; 2024 - Argy</p>
-    <p>Contacto: <a href="mailto:tucorreo@email.com">tucorreo@email.com</a></p>
-</footer>
-""")
-
-st.experimental_set_page_config(
-    page_title="Mi aplicación",
-    layout="wide",
-    menu_items={
-        "About": "https://www.tuweb.com/about",
-        "Help": "https://www.tuweb.com/help",
-    },
-    footer="""
-        <footer>
-            <p>Copyright &copy; 2023 - Tu nombre</p>
-            <p>Contacto: <a href="mailto:tucorreo@email.com">tucorreo@email.com</a></p>
-        </footer>
-    """,
-)
