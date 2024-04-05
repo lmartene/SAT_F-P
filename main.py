@@ -99,3 +99,8 @@ if st.checkbox("Mostrar gráfico "):
     ax.set_ylabel("Monto ($)")
     ax.legend()
     st.pyplot(fig)
+
+
+
+url_formulario = f"https://docs.google.com/forms/d/1rLmnb_uj0rvr1LL8FoRLe8WZP8lgDB-5ieEy3eFM5lQ/viewform?edit_requested=true"
+st.write(f"""Que podemos sumar? Valoramos tu [opinión]({url_formulario})""")
